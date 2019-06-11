@@ -1,0 +1,31 @@
+<p></p>
+<form>
+  <div class="form-group">
+    <div class="input-group">
+        <input id="room" type="text" name="room" placeholder="Raum..." maxlength="4" [(ngModel)]="room">
+        <input id="hostname" type="text" name="hostname" placeholder="Hostname..." [(ngModel)]="hostname">
+        <input id="checklist" type="text" name="checklist" placeholder="setxxxxx..." [(ngModel)]="checklist">
+        <button id="b-add" (click)="addRFIDReader()">Add</button>
+    </div>
+
+<p></p>
+<table id="readers" >
+  <tr>
+      <th>Raum</th>
+      <th>Hostname</th>
+      <th>Checklist</th>
+      <th>Delete</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let r of readers">
+        <td>{{r.room}}</td>
+        <td>{{r.hostname}}</td>
+        <td>{{r.checklist}}</td>
+        <td>
+          <button class="delete" title="delete reader" (click)="delete(r)">Delete</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</form>

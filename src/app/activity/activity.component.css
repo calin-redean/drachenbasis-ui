@@ -1,0 +1,114 @@
+#anmelden{
+    border-collapse: separate;
+    table-layout: auto;  
+    margin: auto;
+    font-size: 20px;
+    border-spacing: 1px 8px;
+}
+.b-anmelden{
+  font-size: 20px;
+  background: green;
+  color: white;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+.info{
+  font-size: 15px;
+  background: blue;
+  color: white;
+  border-radius: 30%;
+}
+.info[disabled]{
+  font-size: 15px;
+  background: gray;
+  color: white;
+  border-radius: 30%;
+}
+.b-excused{
+  font-size: 20px;
+  background: darkgoldenrod;
+  color: white;
+  width: 40px;
+  height: 40px;
+
+}
+.b-excused[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.b-abmelden{
+  font-size: 20px;
+  background: darkred;
+  color: white;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+.b-anmelden[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+.b-abmelden[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+
+select{
+ font-size: 18px
+}
+
+#status{
+  color: green
+}
+
+#search{
+  font-size: 20px;
+}
+#anmelden th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(76, 91, 175);
+    color: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+#anmelden tr:nth-child(even) {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.form-group{
+    text-align: center
+}
+
+.letters {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: solid 1px blue;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .letters:hover{
+    border: solid 1px red;
+    background-color: red;
+    color: white;
+  }

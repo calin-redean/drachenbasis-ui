@@ -1,0 +1,33 @@
+#AG {
+    border-collapse: separate;
+    table-layout:auto;  
+    margin: auto;
+    font-size: 20px
+  }
+
+#AG td, #AG th {
+    border-bottom: 2px solid #ddd;
+    padding: 4px;
+  }
+
+#AG th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(76, 91, 175);
+    color: white;
+  }
+
+.form-group{
+    text-align: center
+}
+
+#status{
+    color: green
+}
+
+.b-upload{
+    font-size: 15px;
+    background: blue;
+    color: white;
+}

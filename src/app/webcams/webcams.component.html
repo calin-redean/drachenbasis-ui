@@ -1,0 +1,42 @@
+<p></p>
+<form>
+  <div class="form-group">
+    <div class="input-group">
+        <label for="off">Off</label>
+        <input id="off" type="checkbox" name="off" [(ngModel)]="off">
+        <input id="ip" type="text" name="ip" placeholder="xxx.xxx.xxx.xxx" size="12px" [(ngModel)]="ip" [disabled]="off==true">
+        <input id="room" type="text" name="room" placeholder="Raum..." maxlength="4" [(ngModel)]="room">
+        <input id="username" type="text" name="username" placeholder="Benutzername..." [(ngModel)]="username" [disabled]="off==true">
+        <input id="password" type="password" name="password" placeholder="Passwort..." [(ngModel)]="password" [disabled]="off==true">
+        <button id="b-add" (click)="addWebcam()">Add</button>
+    </div>
+
+<p></p>
+<table id="webcams" >
+  <tr>
+      <th>Off</th>
+      <th>IP</th>
+      <th>Raum</th>
+      <th>User</th>
+      <th>Passwort</th>
+      <th>Delete</th>
+      <th>URL</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let w of webcams">
+        <input type="checkbox" [checked]="w.off" [disabled]="true">
+        <td>{{w.ip}}</td>
+        <td>{{w.room}}</td>
+        <td>{{w.username}}</td>
+        <td>**************</td>
+        <td>
+          <button class="delete" title="delete room" (click)="delete(w)">Delete</button>
+        </td>
+        <td>
+            <a href="http://{{w.username}}:{{w.pass}}@{{w.ip}}" target="_blank">{{w.room}}</a>            
+        </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</form>

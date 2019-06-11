@@ -1,0 +1,30 @@
+<br>
+<div class="form-group">
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+    <button class="b-upload" (click)="uploadFileToAG()">Hochladen</button>
+    <label id="status">{{uploadStatus}}</label>
+</div>
+<table id="AG" >
+    <tr>
+        <th>Name</th>
+        <th>Klasse</th>
+        <th>Hort</th>
+        <th>AG</th>
+        <th>von</th>
+        <th>bis</th>
+        <th>Tag</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let ag of ags">
+            <td>{{ag.first_name}}</td>
+            <td>{{ag.schoolclass}}</td>
+            <td>{{ag.hort}}</td>
+            <td>{{ag.ag_name}}</td>
+            <td>{{ag.von}}</td>
+            <td>{{ag.bis}}</td>
+            <td>{{ag.day}}</td>
+      </tr>
+    </tbody>
+</table>

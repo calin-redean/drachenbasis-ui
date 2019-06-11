@@ -1,0 +1,74 @@
+<p></p>
+<div class="form-group">
+<!--div class="mat-app-background basic-container"-->
+    <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    <div class="input-group">
+        <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
+        <select [(ngModel)]="searchPresence">
+            <option value="">alle</option>
+            <option value="PRESENT">Offen</option>
+            <option value="IN">Anwesend</option>
+          </select>            
+    </div>
+    <label id="status">{{comment}}</label>
+  <table id="anmelden" >
+      <tbody>
+        <tr>
+          <th>E
+          </th>
+          <th>Kind</th>
+          <th>
+            <select [(ngModel)]="searchClass">
+              <option value="">alle</option>
+              <option *ngFor="let schoolclass of listOfSchoolclass" [ngValue]="schoolclass">{{schoolclass}}</option>
+            </select>
+          </th>
+          <th>
+            Raum
+          </th>          
+          <th>
+              <select [(ngModel)]="searchArrival">
+                  <option value="">alle</option>
+                  <option *ngFor="let arrival of listOfArrival" [ngValue]="arrival">{{arrival}}</option>
+                </select>
+          </th>
+          <th>
+              <select [(ngModel)]="searchLeaving">
+                  <option value="">alle</option>
+                  <option *ngFor="let leaving of listOfLeaving" [ngValue]="leaving">{{leaving}}</option>
+                </select>
+          </th>
+        </tr>
+        <tr *ngFor="let kind of drachenactivity| filterActivity: searchString: searchClass: searchArrival: searchLeaving: searchPresence">
+            <td>
+                <button type="button" class="b-excused" (click)="excused(kind)" title="excused" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >E</button>
+                <!--p></p>
+                <button type="button" class="b-anmelden" (click)="checkin(kind)" title="anmelden" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >An</button>
+                <p></p>
+                <button class="b-abmelden" title="anmelden" (click)="checkout(kind)" [disabled]="kind.status=='OUT'||kind.status=='PRESENT'||kind.status=='ABSENT'||kind.status=='EXCUSED'">Ab</button-->
+            </td>
+            <td>
+              <button type="button" class="b-anmelden" (click)="checkin(kind)" title="anmelden" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >{{kind.first_name}}</button>
+              <p></p>
+              <!--button type="button" class="info" (click)="showComment(kind.first_name,kind.comment)" [disabled]="kind.comment==''">Info</button -->
+              <button mat-raised-button class="info" (click)="openDialog(kind.first_name,kind.comment)" [disabled]="kind.comment==''" >Info</button>
+            </td>
+            <td>{{kind.schoolclass}}</td>            
+            <td>
+                [{{kind.room}}]
+                <p></p>
+                ({{kind.lastRoom}})
+                <p></p>
+                <select [ngModel]="selectedDevice" (ngModelChange)="setRoom(kind,$event)">
+                  <option>...</option>
+                  <option *ngFor="let webcam of webcams" [ngValue]="webcam.room">{{webcam.room}}</option>
+                </select>
+              </td>  
+            <td>{{kind.arrival}}</td>            
+            <td>
+              <button class="b-abmelden" title="anmelden" (click)="checkout(kind)" [disabled]="kind.status=='OUT'||kind.status=='PRESENT'||kind.status=='ABSENT'||kind.status=='EXCUSED'">{{kind.leaving}}</button>
+            </td> 
+          </tr>
+      </tbody>
+  </table>
+</div>

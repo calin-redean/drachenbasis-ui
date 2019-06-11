@@ -1,0 +1,64 @@
+#homework{
+    border-collapse: separate;
+    table-layout: auto;  
+    margin: auto;
+    font-size: 20px;
+    border-spacing: 1px 8px
+}
+.b-homework{
+  font-size: 20px;
+  background: blue;
+  color: white
+}
+
+.b-homework[disabled]{
+  border: 1px solid #999999;
+  background-color: green;
+  color: white;
+}
+
+select{
+ font-size: 20px
+}
+
+#search{
+  font-size: 20px;
+}
+
+#homework th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(76, 91, 175);
+    color: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+#homework tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.form-group{
+    text-align: center
+}
+
+.letters {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: solid 1px blue;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .letters:hover{
+    border: solid 1px red;
+    background-color: red;
+    color: white;
+  }

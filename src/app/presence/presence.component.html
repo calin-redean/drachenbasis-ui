@@ -1,0 +1,103 @@
+<br>
+<div class="form-group">
+    <label for="file">Anwesenheit der Kinder für die laufende Woche</label>
+    <p></p>
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+    <button (click)="uploadFileToActivity()">Hochladen</button>
+    <label id="status">{{uploadStatus}}</label>
+</div>
+<p></p>
+<table id="presence" >
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th>HA</th>
+        <th>
+            <button type="button" class="b-init" (click)="initialise('Mo')">Montag</button>            
+        </th>
+        <th>
+            <button type="button" class="b-init" (click)="initialise('Di')">Dienstag</button>
+        </th>
+        <th>
+            <button type="button" class="b-init" (click)="initialise('Mi')">Mittwoch</button>
+        </th>
+        <th>
+            <button type="button" class="b-init" (click)="initialise('Do')">Donnerstag</button>
+        </th>
+        <th>
+            <button type="button" class="b-init" (click)="initialise('Fr')">Freitag</button>
+        </th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let drache of drachen">
+            <td>{{drache.first_name}}</td>
+            <td>{{drache.schoolclass}}</td>
+            <td>
+                    <input type="checkbox" [checked]="drache.hausaufgaben" [disabled]="true">
+                </td>            
+            <td>
+                <tr>
+                    <td>{{drache.mo_von}}</td>
+                    <td>{{drache.mo_bis}}</td>
+                </tr>
+                <tr>
+                    <td colspan=2>{{drache.mo_comment}}</td>
+                </tr>
+            </td>            
+            <td>
+                <tr>
+                    <td>{{drache.di_von}}</td>
+                    <td>{{drache.di_bis}}</td>
+                </tr>
+                <tr>
+                    <td colspan=2>{{drache.di_comment}}</td>
+                </tr>
+            </td>            
+                <td>
+                    <tr>
+                        <td>{{drache.mi_von}}</td>
+                        <td>{{drache.mi_bis}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan=2>{{drache.mi_comment}}</td>
+                    </tr>
+                </td>            
+            <td>
+                <tr>
+                    <td>{{drache.do_von}}</td>
+                    <td>{{drache.do_bis}}</td>
+                </tr>
+                <tr>
+                    <td colspan=2>{{drache.do_comment}}</td>
+                </tr>
+            </td>            
+                <td>
+                    <tr>
+                        <td>{{drache.fr_von}}</td>
+                        <td>{{drache.fr_bis}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan=2>{{drache.fr_comment}}</td>
+                    </tr>
+                </td>            
+
+      </tr>
+    </tbody>
+</table>
+      <!--      
+<ul class="drachen">
+        <li *ngFor="let drache of drachen">
+            {{drache.first_name}}
+        </li>
+      </ul>
+    -->
+<br>
+
+<!--
+<div>
+    <label for="QRCodes">QR Codes</label>
+    <button id="qrcodes" (click)="downloadFile()">Herunterladen</button>
+</div>
+-->

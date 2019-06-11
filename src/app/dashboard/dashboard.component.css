@@ -1,0 +1,96 @@
+/* DashboardComponent's private CSS styles */
+#search {
+  width: 400px;
+  font-size: 30px;
+  display: inline-flex;
+}
+
+#refresh {
+  font-size: 30px;
+}
+
+#rooms {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin: 0;
+  display: inline-block;
+  color: black;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-spacing: 0;
+  border-width: 0;
+}
+
+#rooms td{
+  border-bottom: 2px solid #ddd;
+  border-width: 0;
+  padding: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin:0;
+}
+
+#kids{
+  color: blue;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-width: 0;
+  border-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-flex;
+}
+
+#rooms tr:nth-child(even){background-color: #f2f2f2;}
+
+#rooms tr:hover {background-color: #ddd;}
+
+#rooms th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(76, 91, 175);
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .module {
+    font-size: 10px;
+    max-height: 75px; }
+}
+@media (max-width: 1024px) {
+  .grid {
+    margin: 0;
+  }
+  .module {
+    min-width: 60px;
+  }
+}
+
+.letters {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: solid 1px blue;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.letters:hover{
+  border: solid 1px red;
+  background-color: red;
+  color: white;
+}
+
+.form-group{
+  text-align: center;
+  font-size: 30px;
+}

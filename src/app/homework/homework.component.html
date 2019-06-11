@@ -1,0 +1,33 @@
+<p></p>
+<div class="form-group">
+    <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    <p></p>
+    <div class="input-group">
+        <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
+    </div>
+    <p></p>
+  <table id="homework" >
+      <tbody>
+        <tr>
+          <th>Kind</th>
+          <th>
+            <select [(ngModel)]="searchHomework">
+                <option></option>
+                <option value='true'>fertig</option>
+                <option value='false'>üben</option>
+              </select>            
+          </th>                    
+          <th>Hausaufgaben</th>                    
+        </tr>
+        <tr *ngFor="let kind of drachenactivity| filterkind: searchString: '': searchHomework">
+            <td>{{kind.first_name}}</td>   
+            <td>
+              <input type="checkbox" [checked]="kind.hausaufgabenStatus" [disabled]="true">
+            </td>            
+            <td>
+              <button class="b-homework" title="Hausaufgaben" (click)="setHomework(kind)">Hausaufgaben</button>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

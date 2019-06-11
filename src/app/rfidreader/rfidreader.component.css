@@ -1,0 +1,66 @@
+
+#readers {
+    border-collapse: collapse;
+    table-layout:fixed;  
+    margin: auto;
+    font-size: 20px
+  }
+
+#readers td, #readers th {
+    border-bottom: 2px solid #ddd;
+    padding: 4px;
+  }
+
+#readers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(76, 91, 175);
+    color: white;
+  }
+  
+  .form-group{
+    text-align: center
+  }
+
+  #room{
+    width: 50px;
+    font-size: 20px;
+  }
+  
+  #hostname, #checklist{
+    width: 150px;
+    font-size: 20px;
+  }
+
+  #b-add{
+    font-size: 20px;
+  }
+
+  .delete{
+    font-size: 20px;
+  }
+
+  a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}

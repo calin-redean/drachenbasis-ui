@@ -1,0 +1,45 @@
+<p></p>
+<form>
+    <div class="form-group">
+    <!--
+        <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+        <p></p>
+        <div class="input-group">
+            <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
+            <button id="refresh" (click)="getHeroes()">Refresh</button>
+        </div>
+    -->
+        <p></p>
+        <div style="overflow-x:auto;">    
+            <table id="rooms" >
+                <tr>
+                    <!--
+                    <th>Uhrzeit</th>
+                    -->
+                    <th>Error Count</th>
+                    <th>Raum</th>
+                    <!--
+                    <th>Kinder</th>
+                    -->
+                </tr>
+                <tbody>
+                <tr *ngFor="let webcam of webcams">
+                    <!--
+                        <tr *ngFor="let hero of (heroes| filterRoom: searchString)">
+                    <td>{{hero.snapshot}}</td>
+                    -->
+                    <td>{{webcam.errorcount}}</td>
+                    <td>{{webcam.room}}</td>
+                    <!--
+                    <td>
+                            <ul id="kids" *ngFor="let drache of (hero.drachen| filterDrache : searchString)">        
+                                    {{drache}} 
+                            </ul>
+                    </td>
+                -->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

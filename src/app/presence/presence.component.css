@@ -1,0 +1,33 @@
+#presence {
+    border-collapse: separate;
+    table-layout:auto;  
+    margin: auto;
+    font-size: 20px
+  }
+
+#presence td, #webcams th {
+    border-bottom: 2px solid #ddd;
+    padding: 4px;
+  }
+
+#presence th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(76, 91, 175);
+    color: white;
+  }
+
+.form-group{
+    text-align: center
+}
+
+#status{
+    color: green
+}
+
+.b-init{
+    font-size: 20px;
+    background: orange;
+    color: white;
+}

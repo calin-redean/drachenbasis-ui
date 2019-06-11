@@ -1,0 +1,33 @@
+<p></p>
+<div class="form-group">
+    <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    <p></p>
+    <div class="input-group">
+        <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
+    </div>
+    <p></p>
+  <table id="essen" >
+      <tbody>
+        <tr>
+          <th>Kind</th>
+          <th>
+            <select [(ngModel)]="searchEssen">
+                <option></option>
+                <option value="true">fertig</option>f
+                <option value="false">hungrig</option>
+              </select>
+          </th>
+          <th>Essen</th>                    
+        </tr>
+        <tr *ngFor="let kind of drachenactivity| filterkind: searchString: searchEssen: ''">
+            <td>{{kind.first_name}}</td>
+            <td>
+                <input type="checkbox" [checked]="kind.essenStatus" [disabled]="true">
+              </td>                          
+            <td>
+              <button class="b-essen" title="essen" (click)="setEssen(kind)">Essen</button>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

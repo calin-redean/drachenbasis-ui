@@ -1,0 +1,49 @@
+<br>
+<div class="form-group">
+    <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    <div class="input-group">
+        <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
+    </div>
+    <table id="AG" >
+        <tr>
+            <th>Name</th>
+            <th>Klasse</th>
+            <th>Hort</th>
+            <th>
+                <select [(ngModel)]="searchAGName">
+                    <option value="">alle</option>
+                    <option *ngFor="let agname of listOfAGs" [ngValue]="agname">{{agname}}</option>
+                  </select> 
+            </th>
+            <th>
+                <select [(ngModel)]="searchStart">
+                    <option value="">alle</option>
+                    <option *ngFor="let agstart of listOfStart" [ngValue]="agstart">{{agstart}}</option>
+                  </select> 
+
+            </th>
+            <th>bis</th>
+            <th>
+                <select [(ngModel)]="searchDay">
+                    <option value="">alle</option>
+                    <option>Montag</option>
+                    <option>Dienstag</option>
+                    <option>Mittwoch</option>
+                    <option>Donnerstag</option>
+                    <option>Freitag</option>
+                  </select> 
+            </th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let ag of ags | filterag: searchString: searchDay: searchStart: searchAGName">
+                <td>{{ag.first_name}}</td>
+                <td>{{ag.schoolclass}}</td>
+                <td>{{ag.hort}}</td>
+                <td>{{ag.ag_name}}</td>
+                <td>{{ag.von}}</td>
+                <td>{{ag.bis}}</td>
+                <td>{{ag.day}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
