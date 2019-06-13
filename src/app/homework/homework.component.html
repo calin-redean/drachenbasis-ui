@@ -1,6 +1,8 @@
 <p></p>
 <div class="form-group">
+  <ol>
     <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+  </ol>
     <p></p>
     <div class="input-group">
         <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">

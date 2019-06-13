@@ -41,7 +41,11 @@ export class EssenComponent implements OnInit {
 
   getWebcams(): void {
     this.WebcamsService.getWebcams()
-      .subscribe(webcams => this.webcams = webcams.sort());
+      .subscribe(webcams => {
+        this.webcams = webcams;
+        this.webcams.sort();
+      }
+      );
   }  
   
   setfilter(letter: string){
