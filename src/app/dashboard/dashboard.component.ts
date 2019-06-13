@@ -41,14 +41,21 @@ export class DashboardComponent implements OnInit {
   }
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.sort((leftSide,rightSide):number => {
+      .subscribe(heroes => {
+        this.heroes = heroes;
+        this.heroes.sort((leftSide,rightSide):number => {
         if (leftSide.name > rightSide.name) return 1;
         if (leftSide.name < rightSide.name) return -1;
-      }));
+        })
+      }
+      );
   }
   getWebcams(): void {
     this.WebcamsService.getWebcams()
-      .subscribe(webcams => this.webcams = webcams.sort());
+      .subscribe(webcams => {
+        this.webcams = webcams;
+        this.webcams.sort();
+      });
   }
 
 }
