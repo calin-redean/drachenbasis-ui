@@ -14,10 +14,10 @@ import {Observable} from 'rxjs/Observable'
 export class EssenComponent implements OnInit {
   drachen: Drache[];
   drachenactivity: DracheActivity[];
-  searchString: String;
-  searchEssen: String;
-  alphabet: String;
-  letters: String[];
+  searchString: string;
+  searchEssen: string;
+  alphabet: string;
+  letters: string[];
   selectedRoom: Webcam;
   webcams: Webcam[];
 

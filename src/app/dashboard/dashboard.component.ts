@@ -17,9 +17,9 @@ import 'rxjs/add/operator/take'
 })
 export class DashboardComponent implements OnInit {
   heroes:Hero[];
-  searchString: String;
-  alphabet: String;
-  letters: String[];
+  searchString: string;
+  alphabet: string;
+  letters: string[];
   webcams: Webcam[];
   
   constructor(private heroService: HeroService,private WebcamsService: WebcamsService) { 

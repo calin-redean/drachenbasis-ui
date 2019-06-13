@@ -10,7 +10,7 @@ import { AG } from '../ag';
 export class AgadminComponent implements OnInit {
 
   fileToUpload: File = null;
-  uploadStatus: String = null;
+  uploadStatus: string = null;
   ags: AG[];
 
 

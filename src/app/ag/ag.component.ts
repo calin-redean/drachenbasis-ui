@@ -9,15 +9,15 @@ import { QrcodesService } from '../qrcodes.service';
 })
 export class AgComponent implements OnInit {
 
-  alphabet: String;
-  letters: String[];
+  alphabet: string;
+  letters: string[];
   ags: AG[];
-  searchString: String;
-  searchDay: String;
-  searchStart: String;
-  searchAGName: String;
-  listOfStart: String[];
-  listOfAGs: String[];
+  searchString: string;
+  searchDay: string;
+  searchStart: string;
+  searchAGName: string;
+  listOfStart: string[];
+  listOfAGs: string[];
 
   constructor(private QrcodesService: QrcodesService) { 
 
