@@ -1,7 +1,8 @@
 <p></p>
 <div class="form-group">
-<!--div class="mat-app-background basic-container"-->
-    <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    <ol>
+      <li class="letters" *ngFor="let letter of letters" (click)="setfilter(letter)">{{letter}}</li>
+    </ol>
     <div class="input-group">
         <input id="search" type="text" name="searchString" placeholder="Name des Kindes..." [(ngModel)]="searchString">
         <select [(ngModel)]="searchPresence">
@@ -42,15 +43,10 @@
         <tr *ngFor="let kind of drachenactivity| filterActivity: searchString: searchClass: searchArrival: searchLeaving: searchPresence">
             <td>
                 <button type="button" class="b-excused" (click)="excused(kind)" title="excused" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >E</button>
-                <!--p></p>
-                <button type="button" class="b-anmelden" (click)="checkin(kind)" title="anmelden" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >An</button>
-                <p></p>
-                <button class="b-abmelden" title="anmelden" (click)="checkout(kind)" [disabled]="kind.status=='OUT'||kind.status=='PRESENT'||kind.status=='ABSENT'||kind.status=='EXCUSED'">Ab</button-->
             </td>
             <td>
               <button type="button" class="b-anmelden" (click)="checkin(kind)" title="anmelden" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >{{kind.first_name}}</button>
               <p></p>
-              <!--button type="button" class="info" (click)="showComment(kind.first_name,kind.comment)" [disabled]="kind.comment==''">Info</button -->
               <button mat-raised-button class="info" (click)="openDialog(kind.first_name,kind.comment)" [disabled]="kind.comment==''" >Info</button>
             </td>
             <td>{{kind.schoolclass}}</td>            

@@ -26,8 +26,10 @@ export class AgComponent implements OnInit {
   ngOnInit() {
     this.alphabet = "# a b c d e f g h i j k l m n o p q r s t u w x y z";
     this.letters = this.alphabet.split(" ");
-    this.QrcodesService.getDistinctStart().subscribe(listOfStart => this.listOfStart = listOfStart.sort());
-    this.QrcodesService.getAGList().subscribe(listOfAGs => this.listOfAGs = listOfAGs.sort());
+    this.QrcodesService.getDistinctStart().subscribe(listOfStart => this.listOfStart = listOfStart);
+    this.listOfStart.sort();
+    this.QrcodesService.getAGList().subscribe(listOfAGs => this.listOfAGs = listOfAGs);
+    this.listOfAGs.sort();
     this.getAGs();
     this.searchString = "";
     this.searchDay = "";

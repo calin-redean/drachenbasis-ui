@@ -16,19 +16,19 @@ import {Infodialog} from '../infodialog/infodialog.component';
 export class ActivityComponent implements OnInit {
   drachen: Drache[];
   drachenactivity: DracheActivity[];
-  searchString: String;
-  searchClass: String;
-  searchArrival: String;
-  searchLeaving: String;
-  searchPresence: String;
-  alphabet: String;
-  letters: String[];
+  searchString: string;
+  searchClass: string;
+  searchArrival: string;
+  searchLeaving: string;
+  searchPresence: string;
+  alphabet: string;
+  letters: string[];
   selectedRoom: Webcam;
   webcams: Webcam[];
-  comment: String;
-  listOfSchoolclass: String[];
-  listOfArrival: String[];
-  listOfLeaving: String[];
+  comment: string;
+  listOfSchoolclass: string[];
+  listOfArrival: string[];
+  listOfLeaving: string[];
 
 
   constructor(private QrcodesService: QrcodesService, private WebcamsService: WebcamsService, public dialog: MatDialog) { }
@@ -45,9 +45,19 @@ export class ActivityComponent implements OnInit {
     this.searchPresence = "";
     this.comment = "";
     this.getWebcams();
-    this.QrcodesService.getDistinctSchoolclass().subscribe(listOfSchoolclass => this.listOfSchoolclass = listOfSchoolclass.sort());
-    this.QrcodesService.getDistinctArrival().subscribe(listOfArrival => this.listOfArrival = listOfArrival.sort());
-    this.QrcodesService.getDistinctLeaving().subscribe(listOfLeaving => this.listOfLeaving = listOfLeaving.sort());    
+    this.QrcodesService.getDistinctSchoolclass().subscribe(listOfSchoolclass => { 
+      this.listOfSchoolclass = listOfSchoolclass;
+      this.listOfSchoolclass.sort();
+    } 
+    );
+    this.QrcodesService.getDistinctArrival().subscribe(listOfArrival => {
+      this.listOfArrival = listOfArrival;
+      this.listOfArrival.sort();
+    });
+    this.QrcodesService.getDistinctLeaving().subscribe(listOfLeaving => {
+      this.listOfLeaving = listOfLeaving;
+      this.listOfLeaving.sort();    
+    });
     Observable.timer(1000,30000).subscribe(x => {
       this.getDrachenActivity();
       this.comment = "";
@@ -55,7 +65,7 @@ export class ActivityComponent implements OnInit {
  
   }
 
-  showComment(name: String, comment: String){
+  showComment(name: string, comment: string){
     this.comment = name + " -> Bemerkung: " + comment;
   }
 
@@ -75,7 +85,7 @@ export class ActivityComponent implements OnInit {
     this.QrcodesService.checkout(dactivity).subscribe(x => {this.getDrachenActivity()});
   }
 
-  setRoom(dactivity: DracheActivity, room: String){
+  setRoom(dactivity: DracheActivity, room: string){
     if ((dactivity.room != null) && (room != dactivity.room) ){
         dactivity.lastRoom = dactivity.room;
         dactivity.room = room.toString();
@@ -86,7 +96,10 @@ export class ActivityComponent implements OnInit {
 
   getWebcams(): void {
     this.WebcamsService.getWebcams()
-      .subscribe(webcams => this.webcams = webcams.sort());
+      .subscribe(webcams => {
+        this.webcams = webcams;
+        this.webcams.sort()
+      });
   }  
   
   setfilter(letter: string){
@@ -110,7 +123,7 @@ export class ActivityComponent implements OnInit {
     .subscribe(drachenactivity => this.drachenactivity = drachenactivity);
   }
   
-  openDialog(name: String, comment: String): void {
+  openDialog(name: string, comment: string): void {
     const dialogRef = this.dialog.open(Infodialog, {
       width: '350px',
       data: {name, comment}

@@ -147,24 +147,24 @@ public getAllDrachenActivity(): Observable<DracheActivity[]> {
     );
 }
 
-public getDistinctSchoolclass(): Observable<String[]> {
-  return this.http.get<String[]>(`${this.bffURL}/activity/schoolclass`)
+public getDistinctSchoolclass(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.bffURL}/activity/schoolclass`)
     .pipe(
       tap(heroes => this.log(`fetched schoolclass`)),
       catchError(this.handleError('getDistinct', []))
     );
 }
 
-public getDistinctStart(): Observable<String[]> {
-  return this.http.get<String[]>(`${this.backendURL}/ag/start`)
+public getDistinctStart(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.backendURL}/ag/start`)
     .pipe(
       tap(heroes => this.log(`fetched ag start`)),
       catchError(this.handleError('getDistinctStart', []))
     );
 }
 
-public getAGList(): Observable<String[]> {
-  return this.http.get<String[]>(`${this.backendURL}/ag/list`)
+public getAGList(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.backendURL}/ag/list`)
     .pipe(
       tap(heroes => this.log(`fetched ag list`)),
       catchError(this.handleError('getAGList', []))
@@ -172,16 +172,16 @@ public getAGList(): Observable<String[]> {
 }
 
 
-public getDistinctArrival(): Observable<String[]> {
-  return this.http.get<String[]>(`${this.bffURL}/activity/arrival`)
+public getDistinctArrival(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.bffURL}/activity/arrival`)
     .pipe(
       tap(heroes => this.log(`fetched schoolclass`)),
       catchError(this.handleError('getDistinct', []))
     );
 }
 
-public getDistinctLeaving(): Observable<String[]> {
-  return this.http.get<String[]>(`${this.bffURL}/activity/leaving`)
+public getDistinctLeaving(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.bffURL}/activity/leaving`)
     .pipe(
       tap(heroes => this.log(`fetched schoolclass`)),
       catchError(this.handleError('getDistinct', []))
