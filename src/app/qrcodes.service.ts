@@ -147,6 +147,14 @@ public getAllDrachenActivity(): Observable<DracheActivity[]> {
     );
 }
 
+public getAllInDrachenActivity(): Observable<DracheActivity[]> {
+  return this.http.get<DracheActivity[]>(`${this.bffURL}/activity/in`)
+    .pipe(
+      tap(heroes => this.log(`fetched drachenactivity`)),
+      catchError(this.handleError('getAllInDrachenActivity', []))
+    );
+}
+
 public getDistinctSchoolclass(): Observable<string[]> {
   return this.http.get<string[]>(`${this.bffURL}/activity/schoolclass`)
     .pipe(
@@ -176,7 +184,7 @@ public getDistinctArrival(): Observable<string[]> {
   return this.http.get<string[]>(`${this.bffURL}/activity/arrival`)
     .pipe(
       tap(heroes => this.log(`fetched schoolclass`)),
-      catchError(this.handleError('getDistinct', []))
+      catchError(this.handleError('getDistinctArrival', []))
     );
 }
 
@@ -184,7 +192,7 @@ public getDistinctLeaving(): Observable<string[]> {
   return this.http.get<string[]>(`${this.bffURL}/activity/leaving`)
     .pipe(
       tap(heroes => this.log(`fetched schoolclass`)),
-      catchError(this.handleError('getDistinct', []))
+      catchError(this.handleError('getDistinctLeaving', []))
     );
 }
 

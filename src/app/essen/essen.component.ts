@@ -62,8 +62,12 @@ export class EssenComponent implements OnInit {
     .subscribe(drachen => this.drachen = drachen);
   }
   getDrachenActivity(): void {
-    this.QrcodesService.getAllDrachenActivity()
-    .subscribe(drachenactivity => this.drachenactivity = drachenactivity);
+    this.QrcodesService.getAllInDrachenActivity()
+    .subscribe(drachenactivity => {
+      if (drachenactivity.length > 0){
+      this.drachenactivity = drachenactivity;
+      }
+    });
   }
 
 }

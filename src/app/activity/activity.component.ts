@@ -97,8 +97,10 @@ export class ActivityComponent implements OnInit {
   getWebcams(): void {
     this.WebcamsService.getWebcams()
       .subscribe(webcams => {
-        this.webcams = webcams;
-        this.webcams.sort()
+        if (webcams.length > 0){
+         this.webcams = webcams;
+          this.webcams.sort()
+        }
       });
   }  
   
@@ -116,11 +118,19 @@ export class ActivityComponent implements OnInit {
 
   getDrachen(): void {
     this.QrcodesService.getAllDrachen()
-    .subscribe(drachen => this.drachen = drachen);
+    .subscribe(drachen => {
+      if (drachen.length > 0){
+        this.drachen = drachen
+      }
+    });
   }
   getDrachenActivity(): void {
     this.QrcodesService.getAllDrachenActivity()
-    .subscribe(drachenactivity => this.drachenactivity = drachenactivity);
+    .subscribe(drachenactivity => {
+      if (drachenactivity.length > 0){
+        this.drachenactivity = drachenactivity
+      }
+    });
   }
   
   openDialog(name: string, comment: string): void {
