@@ -25,6 +25,12 @@
             </select>
           </th>
           <th>
+            <select [(ngModel)]="searchGroup">
+              <option value="">alle</option>
+              <option *ngFor="let group of listOfGroup" [ngValue]="group">{{group}}</option>
+            </select>
+          </th>
+          <th>
             Raum
           </th>          
           <th>
@@ -40,7 +46,7 @@
                 </select>
           </th>
         </tr>
-        <tr *ngFor="let kind of drachenactivity| filterActivity: searchString: searchClass: searchArrival: searchLeaving: searchPresence">
+        <tr *ngFor="let kind of drachenactivity| filterActivity: searchString: searchClass: searchGroup: searchArrival: searchLeaving: searchPresence">
             <td>
                 <button type="button" class="b-excused" (click)="excused(kind)" title="excused" [disabled]="kind.status!='PRESENT' || kind.status=='ABSENT'" >E</button>
             </td>
@@ -49,7 +55,8 @@
               <p></p>
               <button mat-raised-button class="info" (click)="openDialog(kind.first_name,kind.comment)" [disabled]="kind.comment==''" >Info</button>
             </td>
-            <td>{{kind.schoolclass}}</td>            
+            <td>{{kind.schoolclass}}</td>
+            <td>{{kind.group}}</td>            
             <td>
                 [{{kind.room}}]
                 <p></p>

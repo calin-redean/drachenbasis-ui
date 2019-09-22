@@ -21,6 +21,27 @@
   border-width: 0;
 }
 
+#readers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin: 0;
+  display: inline-block;
+  color: black;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-spacing: 0;
+  border-width: 0;
+}
+
+#readers td{
+  border-bottom: 2px solid #ddd;
+  border-width: 0;
+  padding: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin:0;
+}
+
 #rooms td{
   border-bottom: 2px solid #ddd;
   border-width: 0;
@@ -46,7 +67,21 @@
 
 #rooms tr:hover {background-color: #ddd;}
 
+#readers tr:nth-child(even){background-color: #f2f2f2;}
+
+#readers tr:hover {background-color: #ddd;}
+
+
 #rooms th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: rgb(76, 91, 175);
+  color: white;
+  text-align: center;
+}
+
+
+#readers th {
   padding-top: 12px;
   padding-bottom: 12px;
   background-color: rgb(76, 91, 175);

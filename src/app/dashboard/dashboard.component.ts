@@ -8,6 +8,8 @@ import { WebcamsService} from '../webcams.service'
 import 'rxjs/add/observable/timer'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/take'
+import { RFIDReader } from '../rfidreader';
+import { RfidreaderService} from '../rfidreader.service'
 
 
 @Component({
@@ -21,8 +23,9 @@ export class DashboardComponent implements OnInit {
   alphabet: string;
   letters: string[];
   webcams: Webcam[];
+  readers: RFIDReader[];
   
-  constructor(private heroService: HeroService,private WebcamsService: WebcamsService) { 
+  constructor(private heroService: HeroService,private WebcamsService: WebcamsService, private readerService: RfidreaderService) { 
     Observable.timer(1000,30000).subscribe(x => {this.getHeroes()});
   }
 
@@ -56,6 +59,15 @@ export class DashboardComponent implements OnInit {
         this.webcams = webcams;
         this.webcams.sort();
       });
+  }
+
+  getAllRFIDReader(): void {
+    this.readerService.getAllRFIDReader()
+      .subscribe(readers => {
+        this.readers = readers;
+        this.readers.sort();
+      }
+      );
   }
 
 }

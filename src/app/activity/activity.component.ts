@@ -18,6 +18,7 @@ export class ActivityComponent implements OnInit {
   drachenactivity: DracheActivity[];
   searchString: string;
   searchClass: string;
+  searchGroup: string;
   searchArrival: string;
   searchLeaving: string;
   searchPresence: string;
@@ -27,6 +28,7 @@ export class ActivityComponent implements OnInit {
   webcams: Webcam[];
   comment: string;
   listOfSchoolclass: string[];
+  listOfGroup: string[];
   listOfArrival: string[];
   listOfLeaving: string[];
 
@@ -40,6 +42,7 @@ export class ActivityComponent implements OnInit {
     this.letters = this.alphabet.split(" ");
     this.searchString = "";
     this.searchClass = "";
+    this.searchGroup = "";
     this.searchArrival = "";
     this.searchLeaving = "";
     this.searchPresence = "";
@@ -48,6 +51,11 @@ export class ActivityComponent implements OnInit {
     this.QrcodesService.getDistinctSchoolclass().subscribe(listOfSchoolclass => { 
       this.listOfSchoolclass = listOfSchoolclass;
       this.listOfSchoolclass.sort();
+    } 
+    );
+    this.QrcodesService.getDistinctGroup().subscribe(listOfGroup => { 
+      this.listOfGroup = listOfGroup;
+      this.listOfGroup.sort();
     } 
     );
     this.QrcodesService.getDistinctArrival().subscribe(listOfArrival => {

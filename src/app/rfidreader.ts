@@ -3,4 +3,5 @@ export class RFIDReader {
     room: string;
     hostname: string;
     checklist: string;
+    heartbeat: string;
   }

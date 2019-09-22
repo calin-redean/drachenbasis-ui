@@ -4,6 +4,7 @@ export class Drache {
   id: number;
   first_name:string;
   classroom:string;
+  group:string;  
   mo_von:string;
   mo_bis:string;
   mo_comment:string;

@@ -6,13 +6,13 @@ import { DracheActivity } from './dracheactivity'
 })
 export class FilterActivityPipe implements PipeTransform {
 
-  transform(items: DracheActivity[], search: string, searchclass: string, arrival: string, leaving: string, presence: string ): any {
+  transform(items: DracheActivity[], search: string, searchclass: string, searchgroup: string, arrival: string, leaving: string, presence: string ): any {
 
     if (!items) {
       return [];
     }
 
-    if (search.length == 0 && searchclass.length == 0 && presence.length == 0 && arrival.length == 0 && leaving.length == 0)
+    if (search.length == 0 && searchclass.length == 0 && searchgroup.length == 0 && presence.length == 0 && arrival.length == 0 && leaving.length == 0)
     return items;
     
     if (search.length>0 && searchclass.length>0 && presence.length>0 && arrival.length>0 && leaving.length >0 ){
@@ -195,6 +195,15 @@ export class FilterActivityPipe implements PipeTransform {
           singleItem => 
                     (
                     singleItem.schoolclass.toLocaleLowerCase().startsWith(searchclass.toLocaleLowerCase())
+                  )
+        );
+      }
+      if (searchgroup.length>0){
+        search = search.trim();
+        return items.filter(
+          singleItem => 
+                    (
+                    singleItem.group.toLocaleLowerCase().startsWith(searchgroup.toLocaleLowerCase())
                   )
         );
       } 

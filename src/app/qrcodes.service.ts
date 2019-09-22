@@ -163,6 +163,14 @@ public getDistinctSchoolclass(): Observable<string[]> {
     );
 }
 
+public getDistinctGroup(): Observable<string[]> {
+  return this.http.get<string[]>(`${this.bffURL}/activity/group`)
+    .pipe(
+      tap(heroes => this.log(`fetched groups`)),
+      catchError(this.handleError('getDistinct', []))
+    );
+}
+
 public getDistinctStart(): Observable<string[]> {
   return this.http.get<string[]>(`${this.backendURL}/ag/start`)
     .pipe(

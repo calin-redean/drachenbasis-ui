@@ -9,7 +9,7 @@
             <button id="refresh" (click)="getHeroes()">Refresh</button>
         </div>
     -->
-        <p></p>
+        <p>WebCams</p>
         <div style="overflow-x:auto;">    
             <table id="rooms" >
                 <tr>
@@ -41,5 +41,20 @@
                 </tbody>
             </table>
         </div>
+        <p>RFIDReaders</p>
+        <div style="overflow-x:auto;">    
+                <table id="readers" >
+                    <tr>
+                        <th>Heartbeat</th>
+                        <th>Raum</th>
+                    </tr>
+                    <tbody>
+                    <tr *ngFor="let reader of readers">
+                        <td>{{reader.heartbeat}}</td>
+                        <td>{{reader.room}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>    
     </div>
 </form>

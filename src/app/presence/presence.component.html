@@ -12,7 +12,8 @@
 <table id="presence" >
     <tr>
         <th>Name</th>
-        <th></th>
+        <th></th>        
+        <th>Gr</th>
         <th>HA</th>
         <th>
             <button type="button" class="b-init" (click)="initialise('Mo')">Montag</button>            
@@ -34,6 +35,7 @@
       <tr *ngFor="let drache of drachen">
             <td>{{drache.first_name}}</td>
             <td>{{drache.schoolclass}}</td>
+            <td>{{drache.group}}</td>
             <td>
                     <input type="checkbox" [checked]="drache.hausaufgaben" [disabled]="true">
                 </td>            
